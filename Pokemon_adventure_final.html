@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17335d">
+<title>Pokémon Adventure Game| Appleby Centre Edition</title>
+<style>
+:root{--ink:#18314d;--navy:#172c50;--blue:#3265a7;--red:#e3424d;--paper:#f4f7ed;--cream:#fffef7;--gold:#ffd76e;--mint:#9ddb87;--muted:#627b90;--outline:#263b59;--shadow:0 5px 0 #1c3457;--pixel:'Trebuchet MS','Verdana',sans-serif}
+*{box-sizing:border-box}html{min-height:100%;background:#122747}body{margin:0;font-family:var(--pixel);background:radial-gradient(circle at 10% 20%,#2d5686 0,transparent 31%),radial-gradient(circle at 95% 80%,#1e517e 0,transparent 33%),#122747;color:var(--ink);line-height:1.45;min-height:100vh}body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.10;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:24px 24px}.app{max-width:1240px;margin:auto;padding:28px 22px 44px;position:relative}.masthead{display:flex;gap:18px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:20px}.eyebrow{font-size:11px;letter-spacing:2.7px;color:#c0e2ff;font-weight:900;text-transform:uppercase}.masthead h1{font-weight:1000;font-size:clamp(26px,4vw,43px);line-height:1.1;letter-spacing:-1.7px;margin:6px 0 0;color:#fff;text-shadow:0 4px 0 #0c1933}.masthead h1 span{color:#ffd873}.edition{background:#ec4551;border:3px solid #fff;border-radius:8px;box-shadow:0 5px 0 #921f37;padding:10px 15px;color:#fff;font-size:11px;font-weight:1000;letter-spacing:1.3px;transform:rotate(2deg)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:21px;align-items:start}.game-shell{border:5px solid #7498c1;border-radius:19px;background:#27466f;box-shadow:0 0 0 5px #122744,0 20px 45px #091b34a6;overflow:hidden}.screen-header{background:linear-gradient(#3767a1,#244776);border-bottom:4px solid #142a4a;padding:13px 19px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:8px}.screen-header span{font-size:11px;font-weight:900;letter-spacing:1.4px}.screen-header .led{width:10px;height:10px;border-radius:50%;background:#a8f48b;box-shadow:0 0 0 3px #15375e,0 0 14px #acff8e;margin-left:auto;margin-right:9px}.scene{height:345px;position:relative;overflow:hidden;background:linear-gradient(#99d4fb 0%,#ddf0ff 53%,#b0dc8b 53%,#7dc56b 69%,#6cb260 69%,#62a558 100%);border-bottom:5px solid #1a3a53;isolation:isolate}.scene::after{content:"";z-index:5;position:absolute;inset:0;pointer-events:none;opacity:.10;background:repeating-linear-gradient(0deg,transparent 0 3px,#19365d 3px 4px)}.sun{width:72px;height:72px;background:#fff6b5;border:6px solid #ffed9d;position:absolute;top:28px;right:89px;border-radius:50%;box-shadow:0 0 0 10px #fff6b530}.cloud{position:absolute;background:#f7fcff;border:4px solid #d0efff;border-radius:24px;width:115px;height:25px;top:38px;left:10%;box-shadow:18px -13px 0 -1px #f7fcff,18px -14px 0 3px #d0efff,47px -15px 0 -2px #f7fcff,47px -17px 0 2px #d0efff}.cloud.alt{top:86px;left:auto;right:14%;transform:scale(.55)}.hill{position:absolute;width:55%;height:139px;background:#83bc85;bottom:27%;border:4px solid #57986e;border-radius:55% 55% 0 0;left:-9%}.hill.right{left:auto;right:-11%;height:105px;background:#86bc74}.path{position:absolute;left:35%;bottom:-75px;width:32%;height:185px;background:#edd69c;transform:perspective(90px) rotateX(25deg);border:5px solid #d9bd79;border-bottom:0}.lawn-strip{position:absolute;bottom:0;inset-inline:0;height:72px;background:repeating-linear-gradient(90deg,#4c9f55 0 26px,#69af5b 26px 52px);opacity:.55}.gym{position:absolute;top:91px;left:35%;width:29%;height:133px;border:5px solid #3c6590;background:linear-gradient(#ecf4fa 0 45%,#a7cbe8 45%);box-shadow:0 5px 0 #537d97;z-index:1}.gym .roof{position:absolute;top:-22px;left:-10%;width:120%;height:24px;background:#d94855;border:5px solid #862e46;transform:skewX(-7deg)}.gym .sign{position:absolute;top:10px;width:85%;left:7.5%;height:34px;display:grid;place-items:center;color:#fff;background:#d83d4f;border:3px solid #923348;font-weight:1000;font-size:clamp(9px,1.4vw,16px);letter-spacing:.4px}.gym .doors{position:absolute;bottom:0;left:28%;width:44%;height:66px;background:#5689b2;border:4px solid #33608d;border-bottom:0}.gym .doors::after{content:"";height:100%;width:3px;position:absolute;background:#234c74;left:50%;top:0}.shrub{position:absolute;bottom:26%;width:110px;height:37px;border:4px solid #33794f;background:#58a85b;border-radius:80% 70% 30% 20%;z-index:2}.shrub.left{left:3%}.shrub.right{right:4%;transform:scale(.85)}.scene-label{position:absolute;top:12px;left:14px;z-index:8;background:#fffef4;border:3px solid var(--outline);border-radius:5px;padding:7px 10px;font-size:10px;letter-spacing:1px;font-weight:1000;box-shadow:3px 3px 0 #244761}.scene-sub{position:absolute;top:12px;right:14px;z-index:8;background:#244e80;color:#fff;border:3px solid #f7fbff;border-radius:6px;padding:6px 9px;font-size:10px;font-weight:900;max-width:40%;text-align:center}.mon{position:absolute;z-index:4;filter:drop-shadow(2px 6px 0 #1e533544);animation:bob 2.1s ease-in-out infinite}.mon svg{display:block;width:100%;height:100%;overflow:visible;image-rendering:pixelated}.mon.foe{width:165px;height:165px;right:13%;bottom:29px}.mon.ally{width:148px;height:148px;left:14%;bottom:0;transform:scaleX(-1);animation:allybob 2.4s ease-in-out infinite}.mon.big{width:240px;height:240px;right:27%;bottom:15px}.mon.quiz{width:210px;height:210px;right:calc(50% - 105px);bottom:11px}.mon.hidden{filter:brightness(0) drop-shadow(2px 6px 0 #152c48)}.mon.mini-a{width:134px;height:134px;left:12%;bottom:21px}.mon.mini-b{width:134px;height:134px;left:calc(50% - 67px);bottom:21px;animation-delay:.3s}.mon.mini-c{width:134px;height:134px;right:12%;bottom:21px;animation-delay:.7s}.stage-ground{position:absolute;bottom:8px;left:8%;right:8%;height:31px;border-radius:50%;background:#386f43a1;z-index:2;transform:scaleY(.45)}.hp-card{position:absolute;z-index:9;min-width:174px;background:#fffdf3;border:3px solid #253b58;border-radius:9px;box-shadow:3px 4px 0 #244b75;padding:7px 10px;color:#273b50}.hp-card.foe-bar{top:54px;left:17px}.hp-card.ally-bar{right:16px;bottom:12px}.hp-name{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:12px;font-weight:1000}.hp-type{font-size:8px;color:#627889;letter-spacing:1px}.hp-track{height:11px;margin:7px 0 1px;background:#b9c6c8;border:2px solid #304962;border-radius:20px;overflow:hidden}.hp-fill{height:100%;background:#4fc878;transition:width .3s}.hp-fill.mid{background:#e7ad42}.hp-fill.low{background:#ea625f}.hp-count{text-align:right;font-size:9px;font-weight:900;color:#506679}.scene-notice{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-weight:1000;letter-spacing:1px;background:#fff7d3;border:3px solid #273a55;border-radius:7px;padding:7px 13px;z-index:11;white-space:nowrap;box-shadow:3px 3px 0 #19395a;font-size:11px}.cup-row{position:absolute;display:flex;gap:10px;bottom:9px;left:50%;transform:translateX(-50%);z-index:8}.ramen-cup{width:46px;height:48px;display:grid;place-items:center;font-size:24px;background:#d8e5e7;border:3px solid #273b58;clip-path:polygon(0 0,100% 0,88% 100%,12% 100%);filter:grayscale(1);opacity:.7}.ramen-cup.ready{background:#fff4be;filter:none;opacity:1}.dialogue-zone{background:#dce7f1;padding:17px 19px 8px;border-top:4px solid #afcadd}.dialogue-box{min-height:91px;background:#fffefa;border:4px solid #294f80;outline:3px solid #edf6fb;border-radius:9px;box-shadow:inset 0 0 0 3px #b7d9f0;padding:14px 17px;position:relative}.dialogue-box::after{content:'▼';position:absolute;right:14px;bottom:7px;color:#de4756;font-size:10px;animation:blink 1s step-end infinite}.dialogue-title{font-weight:1000;font-size:14px;color:#22446d;margin-bottom:5px}.dialogue-copy{font-size:13px;font-weight:650;color:#314b5e;max-width:96%}.controls{background:#dce7f1;padding:9px 19px 22px;min-height:204px}.controls-label{font-size:10px;font-weight:1000;color:#486787;letter-spacing:1.5px;text-transform:uppercase;margin:5px 0 10px}.action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.action-grid.thirds{grid-template-columns:repeat(3,minmax(0,1fr))}.btn{appearance:none;cursor:pointer;text-align:left;border:3px solid #243f61;border-radius:8px;box-shadow:0 4px 0 #203d60;background:linear-gradient(#fff,#e9f2f7);color:#1c3a56;padding:13px 15px;min-height:53px;display:flex;align-items:center;gap:8px;justify-content:space-between;font:900 12px/1.3 var(--pixel);transition:transform .12s,box-shadow .12s}.btn:hover:not(:disabled){background:#fff7db;transform:translateY(-2px);box-shadow:0 6px 0 #203d60}.btn:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 #203d60}.btn:disabled{opacity:.48;cursor:not-allowed}.btn.primary{background:linear-gradient(#f35b66,#d43c4e);border-color:#812c47;color:white;box-shadow:0 4px 0 #822947}.btn.primary:hover:not(:disabled){background:linear-gradient(#ff7880,#e34855);box-shadow:0 6px 0 #822947}.btn.gold{background:linear-gradient(#ffe895,#fbc660);border-color:#9b6f32;color:#523c1b;box-shadow:0 4px 0 #976834}.btn.gold:hover:not(:disabled){background:#fff2b9;box-shadow:0 6px 0 #976834}.btn .sub{font-size:10px;opacity:.65;font-weight:750}.btn .arrow{opacity:.8;font-size:18px}.full-width{width:100%;justify-content:center;text-align:center}.small-note{color:#55728b;font-size:11px;margin:10px 0 0}.starter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.starter-card{cursor:pointer;position:relative;background:#fffefa;border:3px solid #98b4cb;border-radius:10px;padding:12px 9px 10px;color:var(--ink);font:inherit;box-shadow:0 4px 0 #8ca6bd;text-align:center;min-height:147px}.starter-card[aria-pressed="true"]{background:#fdf5d2;border-color:#d94c54;box-shadow:0 4px 0 #a42f3f}.starter-card[aria-pressed="true"]::after{content:'✓';position:absolute;right:6px;top:5px;font-size:13px;font-weight:1000;border-radius:50%;background:#d94350;color:#fff;width:22px;height:22px}.starter-card svg{width:78px;height:78px;display:block;margin:-2px auto -5px}.starter-card strong{display:block;font-size:13px}.starter-card .type{display:block;margin:5px auto 0;width:max-content;border-radius:5px;background:#d7e9f6;color:#265271;font-size:9px;font-weight:900;padding:2px 8px}.type.grass{background:#d7edc1;color:#397540}.type.water{background:#d2e9fa;color:#3279ad}.type.fire{background:#ffe0ce;color:#c25b35}.start-row{display:flex;align-items:center;gap:13px;margin-top:14px}.start-row .btn{flex:1}.start-row .small-note{margin:0;max-width:185px}.question-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.answer.correct{background:#c9efc7;border-color:#3b814a}.answer.wrong{border-color:#da4652;background:#ffe0df}.hint-card{background:#fff7d6;border:2px dashed #bf953c;border-radius:9px;padding:12px 15px;font-size:12px;color:#5f4b28;margin-top:12px;font-weight:800}.side{display:grid;gap:17px}.side-card{background:#f8fbfa;border:4px solid #7196b5;border-radius:13px;box-shadow:0 0 0 3px #153254,0 9px 0 #112a4c;overflow:hidden}.side-title{display:flex;align-items:center;justify-content:space-between;background:#32649b;color:white;font-size:11px;font-weight:1000;letter-spacing:1.4px;padding:12px 14px;border-bottom:3px solid #193d66}.side-body{padding:15px}.trainer{display:flex;align-items:center;gap:11px}.avatar{height:69px;width:69px;flex:none;border:3px solid #2a527d;border-radius:11px;background:linear-gradient(160deg,#9dd6f0,#d8f1f4);display:grid;place-items:center}.avatar svg{height:67px;width:67px}.trainer-name{font-size:14px;font-weight:1000}.trainer-caption{font-size:10px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:1px}.trainer-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.stat{background:#e6f0f4;border:2px solid #c2d7e5;padding:8px 10px;border-radius:7px}.stat strong{font-size:18px;display:block;color:#254e7d}.stat span{font-size:9px;font-weight:900;color:#6b8594}.route{position:relative;display:grid;gap:12px}.route::before{content:"";position:absolute;top:19px;bottom:19px;left:16px;width:4px;background:#c4d7dd}.route-step{position:relative;display:flex;gap:12px;align-items:center;padding:4px 0}.step-icon{display:grid;place-items:center;position:relative;z-index:1;width:36px;height:36px;border-radius:8px;border:3px solid #7f9db3;background:#e5eef1;color:#8da4b4;font-size:16px;font-weight:1000;flex:none}.route-step.done .step-icon{background:#a1dd9f;color:#256844;border-color:#4d9e61}.route-step.active .step-icon{background:#ffda78;color:#65491b;border-color:#d29b40;box-shadow:0 0 0 3px #ffe8b4}.step-text strong{display:block;font-size:11px}.step-text span{display:block;font-size:10px;font-weight:800;color:#7d95a5}.route-step.active .step-text span{color:#bc7842}.backpack{display:flex;gap:8px;flex-wrap:wrap}.item{background:#e4eef3;border:2px solid #c0d5de;border-radius:6px;padding:8px;font-size:10px;font-weight:900;color:#617c90;flex:1;text-align:center;min-width:77px}.item.found{background:#fef4ca;border-color:#dec67a;color:#705a30}.item .item-symbol{font-size:19px;display:block;margin-bottom:4px}.tiny{font-size:10px;line-height:1.55;color:#58748a;margin:0}.progress-track{height:10px;border-radius:20px;border:2px solid #162f4e;background:#102f53;overflow:hidden;flex:1}.progress-track div{height:100%;background:linear-gradient(90deg,#78d887,#ffe27b);transition:width .3s}.progress-inline{display:flex;align-items:center;gap:10px;margin-top:11px;color:#fff;font-size:10px;font-weight:900}.footer{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-top:20px;color:#b4cce1;font-weight:700;font-size:10px;flex-wrap:wrap}.footer button{font:inherit;color:#fff;background:transparent;border:1px solid #7898ba;border-radius:6px;padding:7px 10px;cursor:pointer}.footer button:hover{background:#2c5683}.boxart{position:absolute;bottom:30px;width:185px;height:185px;left:calc(50% - 92px);z-index:7;animation:bob 2.1s ease-in-out infinite}.boxart svg{width:100%;height:100%;filter:drop-shadow(4px 7px 0 #26334f70)}.reward-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.reward{border:3px solid #8daac2;background:linear-gradient(145deg,#fffdf2,#deebf4);box-shadow:0 4px 0 #6f8ca7;border-radius:8px;padding:13px 4px;cursor:pointer;color:#2e4768;font:900 11px var(--pixel);min-height:90px;text-align:center}.reward .gift{font-size:26px;display:block;margin-bottom:8px;filter:saturate(.8)}.reward:hover{background:#fff2c2;border-color:#d79745;transform:translateY(-2px)}.reward.selected{background:#fff0bb;border-color:#d84955;box-shadow:0 4px 0 #97303e}.ticket{border:3px dashed #b78c44;border-radius:11px;background:linear-gradient(110deg,#fff9da,#fffdf5);padding:16px;text-align:center;margin-bottom:12px}.ticket .claim{font-size:10px;letter-spacing:2px;color:#9c7840;font-weight:1000}.ticket .code{font-size:clamp(30px,5vw,46px);font-weight:1000;letter-spacing:4px;color:#273f68;text-shadow:2px 2px #fae1a0;margin:4px}.ticket .fine{font-size:11px;color:#725d46;font-weight:800}.confetti{position:absolute;z-index:9;pointer-events:none;width:9px;height:16px;animation:drop 2.8s linear infinite;background:#ffca66;top:-20px}.confetti:nth-of-type(3n){background:#e64b66}.confetti:nth-of-type(4n){background:#76d0ec}.confetti:nth-of-type(5n){background:#9cd67f}@keyframes drop{from{transform:translateY(-30px) rotate(0)}to{transform:translateY(395px) rotate(590deg)}}@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -7px}}@keyframes allybob{0%,100%{translate:0 0;transform:scaleX(-1)}50%{translate:0 -5px;transform:scaleX(-1)}}@keyframes blink{50%{opacity:0}}@media(max-width:950px){.layout{grid-template-columns:minmax(0,1fr)}.side{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.side-card:last-child{grid-column:1 / -1}}@media(max-width:600px){.app{padding:16px 12px 24px}.masthead h1{font-size:26px}.edition{font-size:9px;padding:7px 10px}.game-shell{border-width:3px;border-radius:11px}.scene{height:288px}.gym{width:38%;left:31%;top:88px;height:99px}.scene-label{font-size:9px}.scene-sub{font-size:9px}.mon.foe{width:124px;height:124px;right:11%;bottom:26px}.mon.ally{width:111px;height:111px;left:7%}.mon.big{width:185px;height:185px;right:calc(50% - 92px)}.mon.quiz{width:164px;height:164px;right:calc(50% - 82px)}.mon.mini-a,.mon.mini-b,.mon.mini-c{width:99px;height:99px;bottom:26px}.mon.mini-a{left:2%}.mon.mini-b{left:calc(50% - 49px)}.mon.mini-c{right:2%}.hp-card{min-width:133px;padding:5px 7px}.hp-card.foe-bar{top:56px;left:7px}.hp-card.ally-bar{bottom:6px;right:7px}.dialogue-zone{padding:13px 12px 8px}.dialogue-copy{font-size:12px}.controls{padding:8px 12px 16px;min-height:190px}.btn{font-size:11px;padding:11px 10px}.starter-card{padding:11px 3px}.starter-card svg{height:65px;width:65px}.starter-card strong{font-size:11px}.start-row{display:block}.start-row .small-note{margin-top:11px;max-width:none}.side{grid-template-columns:1fr}.side-card:last-child{grid-column:auto}.reward-grid{grid-template-columns:repeat(3,1fr)}.boxart{width:150px;height:150px;left:calc(50% - 75px)}.cup-row{gap:3px}.ramen-cup{width:38px;height:40px;font-size:19px}.scene-notice{font-size:9px}.sun{right:30px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}@media print{body{background:#fff}.masthead,.side,.footer,.screen-header,.scene,.dialogue-zone,.controls-label,.controls .btn,.controls .small-note{display:none!important}.layout{display:block}.game-shell{border:none;box-shadow:none}.controls{background:#fff}.ticket{margin:90px auto;max-width:500px;padding:35px}.ticket .code{font-size:54px}}
+
+/* Pokémon PNG artwork: fit images inside their intended display areas. */
+.pokemon-sprite {display:block;max-width:100%;max-height:100%;object-fit:contain;object-position:center;}
+.starter-card {min-width:0;overflow:hidden;}
+.starter-card .pokemon-sprite {width:100%;height:90px;max-height:90px;margin:0 auto 6px;}
+.mon .pokemon-sprite {width:100%;height:100%;max-width:100%;max-height:100%;}
+.avatar .pokemon-sprite {width:65px;height:65px;}
+@media(max-width:600px){.starter-card .pokemon-sprite{height:68px;max-height:68px;}}
+
+/* Battle and cooking micro-animations */
+.mon.strike-ally{animation:ally-strike .48s ease-in-out!important}.mon.strike-foe{animation:foe-strike .48s ease-in-out!important}.mon.hit{animation:hit-shake .42s ease-in-out!important}
+@keyframes ally-strike{45%{translate:95px -25px;scale:1.15}100%{translate:0 0;scale:1}}@keyframes foe-strike{45%{translate:-95px -20px;scale:1.13}100%{translate:0 0;scale:1}}@keyframes hit-shake{20%,60%{translate:-12px 0;filter:brightness(2)}40%,80%{translate:12px 0;filter:brightness(1.8)}}
+.battle-fx{position:absolute;z-index:12;top:49%;left:50%;font-size:54px;pointer-events:none;animation:fx-pop .55s ease-out forwards;text-shadow:0 3px 7px #24354c}
+@keyframes fx-pop{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}40%{opacity:1;transform:translate(-50%,-75%) scale(1.5)}100%{opacity:0;transform:translate(-50%,-120%) scale(.8)}}
+.mystery-blob{position:absolute;z-index:4;left:50%;bottom:26px;transform:translateX(-50%);width:154px;height:170px;filter:drop-shadow(5px 8px 0 #17344c55)}
+.mystery-blob:before{content:'';position:absolute;inset:16px 11px 4px;background:#142d4a;border-radius:47% 49% 43% 42%;clip-path:polygon(20% 0,80% 0,97% 26%,93% 61%,100% 83%,77% 100%,25% 100%,0 84%,7% 53%,0 27%)}
+.mystery-blob:after{content:'?';position:absolute;top:42px;left:55px;font-size:65px;font-weight:1000;color:#fff9c8;transform:rotate(-8deg)}
+.cooking-stage{position:absolute;z-index:12;bottom:45px;left:50%;transform:translateX(-50%);display:flex;align-items:center;flex-direction:column;gap:6px;pointer-events:none}
+.cooking-stage .active-cup{width:112px;height:112px;line-height:1.1;filter:drop-shadow(3px 8px 0 #2b4b6366);animation:cup-arrive .5s ease-out both}
+.cooking-stage .active-cup img{width:100%;height:100%;object-fit:contain;transition:opacity .05s linear}.ramen-cup img{width:100%;height:100%;object-fit:contain}.ramen-cup:not(.ready) img{filter:grayscale(1);opacity:.25}.ramen-cup.ready img{opacity:1}.cooking-stage .steam{font-size:24px;color:#fff;letter-spacing:12px;animation:steam-rise 1.2s ease-in-out infinite}
+.cooking-stage .cook-meter{width:170px;height:17px;background:#fff;border:3px solid #203c5a;border-radius:12px;overflow:hidden}
+.cooking-stage .cook-meter>div{height:100%;background:linear-gradient(90deg,#f7b74c,#8cdb87);width:0;transition:width .1s linear}
+.cooking-stage .cook-count{background:#fff9dc;border:2px solid #274360;padding:3px 12px;border-radius:8px;font-size:12px;font-weight:1000}
+.cooking-stage.spill .active-cup{animation:cup-spill .9s ease-in forwards}
+@keyframes cup-arrive{from{transform:translateY(-180px) scale(.5);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}@keyframes steam-rise{50%{transform:translateY(-12px);opacity:.35}}@keyframes cup-spill{to{transform:translate(135px,70px) rotate(115deg);opacity:.3}}
+@media(prefers-reduced-motion:reduce){.mon.strike-ally,.mon.strike-foe,.mon.hit,.battle-fx,.cooking-stage .active-cup,.cooking-stage .steam{animation:none!important}}
+.boxart.box-link{appearance:none;background:none;border:0;padding:0;cursor:pointer;display:block;}
+.boxart.box-link:hover{filter:brightness(1.08) drop-shadow(0 0 9px #ffe698);}
+.boxart.box-link:focus-visible{outline:4px solid #ffe895;outline-offset:4px;border-radius:12px;}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="masthead">
+  <div><div class="eyebrow">A random fan-made adventure</div><h1>Pokémon <span>Adventure</span></h1></div>
+  <div class="edition">Appleby Centre Edition</div>
+</header>
+<div class="layout">
+  <main class="game-shell" id="game" aria-label="Pokémon Adventure Game">
+    <div class="screen-header"><span id="screen-region">APPLEBY</span><span class="led" aria-hidden="true"></span><span id="stage-count">TRAINER SETUP</span></div>
+    <div id="scene-container"></div>
+    <div class="dialogue-zone"><div class="dialogue-box" role="status" aria-live="polite"><div class="dialogue-title" id="dialogue-title"></div><div class="dialogue-copy" id="dialogue-copy"></div></div></div>
+    <section class="controls" id="controls" aria-label="Game controls"></section>
+  </main>
+  <aside class="side" aria-label="Game status">
+    <section class="side-card"><div class="side-title"><span>◈ TRAINER CARD</span><span>NO. 001</span></div><div class="side-body"><div class="trainer"><div class="avatar" id="trainer-avatar"></div><div><div class="trainer-caption">Your partner</div><div class="trainer-name" id="trainer-name">Not selected</div><div class="trainer-caption" id="trainer-type">Choose a starter</div></div></div><div class="trainer-stats"><div class="stat"><strong id="stat-badges">0 / 3</strong><span>CHECKPOINTS</span></div><div class="stat"><strong id="stat-health">—</strong><span>PARTNER HP</span></div></div></div></section>
+    <section class="side-card"><div class="side-title"><span>⌁ QUEST MAP</span><span>3 STOPS</span></div><div class="side-body"><div class="route" id="route"></div></div></section>
+    <section class="side-card"><div class="side-title"><span>▣ BAG / ITEMS</span><span>POCKETS</span></div><div class="side-body"><div class="backpack" id="backpack"></div><p class="tiny" style="margin-top:13px">Tip: Your progress is saved in this browser. All you need is this one HTML file.</p></div></section>
+  </aside>
+</div>
+<div class="progress-inline"><span>QUEST PROGRESS</span><div class="progress-track"><div id="total-progress" style="width:0"></div></div><span id="progress-text">0%</span></div>
+<footer class="footer"><span>Unofficial fan-made game by lethanhnguyen. Not affiliated with Nintendo, The Pokémon Company.</span><button type="button" id="restart">↻ Restart adventure</button></footer>
+</div>
+<script>
+'use strict';
+// Enter your destination URL here when it is available. The mystery box will open that page.
+const MYSTERY_BOX_URL = ''; // Paste your destination link between the quotes.
+const RAMEN_GOAL = 3;
+const COOK_MS = 2000;
+const CUP_IMAGE = 'https://www.nissinfoods.com/wp-content/uploads/2023/03/CP-13003-GG_US_CN_Bicep_Chicken_CLUB-Unit-3-4-top-png.png';
+const SNORLAX_DONE_IMAGE = 'https://media1.tenor.com/m/L8dp0-pg9g8AAAAd/snorlax-good-morning.gif';
+const PARTNERS = {
+ turtwig:{name:'Turtwig',type:'GRASS',move1:'Razor Leaf',move2:'Tackle',power1:[20,26],power2:[12,19],symbol:'🌿'},
+ piplup:{name:'Piplup',type:'WATER',move1:'Bubble',move2:'Peck',power1:[20,26],power2:[13,19],symbol:'💧'},
+ chimchar:{name:'Chimchar',type:'FIRE',move1:'Ember',move2:'Scratch',power1:[20,26],power2:[13,19],symbol:'🔥'}
+};
+const STORE = 'adventure-pokemon-v1';
+
+const fresh = () => ({
+  step: 0,
+  starter: null,
+  hp: 100,
+  foeHp: 78,
+  potions: 1,
+  guard: false,
+  battleWon: false,
+  battleLost: false,
+  hint: false,
+  incorrect: '',
+  puzzleDone: false,
+  ramen: 0,
+  message: ''
+});
+
+let s = fresh();
+let battleBusy=false, cooking=false, cookTimer=null;
+
+try {
+  const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
+
+  if (
+    saved &&
+    Number.isInteger(saved.step) &&
+    saved.step >= 0 &&
+    saved.step <= 4 &&
+    (!saved.starter || PARTNERS[saved.starter]) &&
+    Number.isFinite(saved.hp) &&
+    Number.isFinite(saved.ramen) &&
+    saved.ramen >= 0 &&
+    saved.ramen <= RAMEN_GOAL &&
+    true
+  ) {
+    const {boxOpened, prize, ...gameProgress} = saved;
+    s = { ...fresh(), ...gameProgress };
+  }
+} catch (e) {
+  console.warn('Unable to load saved game:', e);
+}
+
+const $ = id => document.getElementById(id);
+
+function save() {
+  try {
+    localStorage.setItem(STORE, JSON.stringify(s));
+  } catch (e) {
+    console.warn('Unable to save game:', e);
+  }
+}
+
+const ink = '#26364b';
+
+// Pokémon image URLs
+const images = {
+  turtwig: "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/387.png",
+  piplup: "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/393.png",
+  chimchar: "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/390.png",
+  pikachu: "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png",
+  psyduck: "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/054.png",
+  snorlax: "https://unite.pokemon.com/images/pokemon/snorlax/stat/stat-snorlax.png",
+   snorlaxDone: SNORLAX_DONE_IMAGE
+};
+
+// Return an HTML image element
+function sprite(name) {
+  const src = images[name];
+
+  if (!src) return '';
+
+  return `<img
+    src="${src}"
+    alt="${name}"
+    class="pokemon-sprite"
+    loading="lazy"
+  >`;
+}
+
+function name() {
+  return PARTNERS[s.starter]?.name || 'Your Pokémon';
+}
+
+function landscape(label, tag, extra = '', opts = '') {
+  return `<div class="scene ${opts}">
+    <div class="sun"></div>
+    <div class="cloud"></div>
+    <div class="cloud alt"></div>
+    <div class="hill"></div>
+    <div class="hill right"></div>
+    <div class="gym">
+      <div class="roof"></div>
+      <div class="sign">APPLEBY CENTRE</div>
+      <div class="doors"></div>
+    </div>
+    <div class="shrub left"></div>
+    <div class="shrub right"></div>
+    <div class="path"></div>
+    <div class="lawn-strip"></div>
+    <div class="stage-ground"></div>
+    <div class="scene-label">${label}</div>
+    <div class="scene-sub">${tag}</div>
+    ${extra}
+  </div>`;
+}
+function mon(id,cls){return `<div class="mon ${cls}">${sprite(id)}</div>`}
+function hpbar(title,hp,max,cl){let per=Math.max(0,Math.min(100,Math.round(hp/max*100)));return `<div class="hp-card ${cl}"><div class="hp-name"><span>${title}</span><span class="hp-type">Lv. 12</span></div><div class="hp-track"><div class="hp-fill ${per<=25?'low':per<=50?'mid':''}" style="width:${per}%"></div></div><div class="hp-count">HP ${Math.max(0,hp)} / ${max}</div></div>`}
+function scenery(){
+ if(s.step===0)return landscape('STARTER SELECTION','WELCOME, TRAINER',mon('turtwig','mini-a')+mon('piplup','mini-b')+mon('chimchar','mini-c'));
+ if(s.step===1)return landscape('CHECKPOINT 01 · CARDIO ZONE',s.battleWon?'BATTLE COMPLETE':'WILD ENCOUNTER',mon(s.starter,'ally')+mon('pikachu','foe')+hpbar(name(),s.hp,100,'ally-bar')+hpbar('PIKACHU',s.foeHp,78,'foe-bar')+(s.battleWon?'<div class="scene-notice">★ VICTORY! ★</div>':''));
+ if(s.step===2)return landscape('CHECKPOINT 02 · WATER STATION',s.puzzleDone?'POKÉMON DISCOVERED':'MYSTERY SHADOW',(s.puzzleDone?mon('psyduck','quiz'):'<div class="mystery-blob" role="img" aria-label="Obscured mystery Pokémon silhouette"></div>')+(s.puzzleDone?'<div class="scene-notice">★ IT’S PSYDUCK! ★</div>':''));
+ if(s.step===3)return landscape('CHECKPOINT 03 · RECOVERY LOUNGE',s.ramen>=RAMEN_GOAL?'MISSION COMPLETE':'A SLEEPY ROADBLOCK',mon(s.ramen>=RAMEN_GOAL?'snorlaxDone':'snorlax','big')+`<div class="cup-row" aria-label="${s.ramen} of ${RAMEN_GOAL} instant ramen cups served">${Array.from({length:RAMEN_GOAL},(_,i)=>`<div class="ramen-cup ${i<s.ramen?'ready':''}" title="Cup ${i+1}"><img src="${CUP_IMAGE}" alt="Cup noodles"></div>`).join('')}</div>`+(cooking?`<div class="cooking-stage" id="cooking-stage"><div class="active-cup"><img id="cooking-cup-image" src="${CUP_IMAGE}" alt="Cooking noodles" style="opacity:0"></div><div class="cook-meter"><div id="cook-fill"></div></div><div class="cook-count" id="cook-count">2.0 seconds</div></div>`:''));
+ let extras=`<button type="button" class="boxart box-link" data-action="open" aria-label="Open mystery box" title="Open mystery box"><svg viewBox="0 0 160 160" aria-label="Mystery treasure box" role="img" xmlns="http://www.w3.org/2000/svg"><path d="M28 65H130L121 136H40Z" fill="#e6ad48" stroke="#37455d" stroke-width="6" stroke-linejoin="round"/><path d="M17 46H141V72H17Z" fill="#ffdf7e" stroke="#37455d" stroke-width="6" stroke-linejoin="round"/><path d="M68 45H92V136H68Z" fill="#e85268" stroke="#37455d" stroke-width="4"/><path d="M80 43Q34 39 44 21Q57 5 80 43Q88 5 109 20Q124 41 80 43Z" fill="#f16f78" stroke="#37455d" stroke-width="5"/><path d="M80 80l7 11 14 2-10 9 2 14-13-7-13 7 2-14-10-9 14-2Z" fill="#fff0a9" stroke="#37455d" stroke-width="3"/><path d="M19 29l-4-10M130 22l8-11M126 100l13 4" stroke="#ffe799" stroke-width="6" stroke-linecap="round"/></svg></button>`;
+ return landscape('FINAL STOP · TREASURE ROOM','MYSTERY BOX',extras);
+}
+function phrase(){
+ if(s.step===0)return ['A new adventure begins!','Welcome to the Pokemon Adventure at Appleby Centre. Choose one partner, clear the checkpoints, and unlock your prize!'];
+ if(s.step===1){if(s.battleWon)return ['Pikachu has been defeated!','Your partner wins the Cardio Zone challenge! Pikachu steps aside and you earn the first checkpoint stamp.'];if(s.battleLost)return ['Your partner needs a rest!','Pikachu won this round. Heal up and try again—your adventure is not over.'];return ['A wild Pikachu appeared!',s.message||`Pikachu challenges ${name()} to a friendly gym battle. Choose a move to attack, or use an item to recover HP.`]}
+ if(s.step===2){if(s.puzzleDone)return ['Pokédex entry unlocked!','Correct! It’s Psyduck, the confused Duck Pokémon. The second checkpoint is clear.'];return ['Who’s that Pokémon?',s.message||'The shadow has been distorted by the water station lights. Which Pokémon matches the cryptic field notes?']}
+ if(s.step===3){if(s.ramen>=RAMEN_GOAL)return ['Snorlax is awake!','Three cups of instant ramen did the trick! Snorlax happily moves away from the recovery lounge and reveals the treasure room.'];return ['Snorlax blocks the way!',s.message||`Snorlax wants three cups of instant ramen before moving. Prepare and serve the noodles, one cup at a time. (${s.ramen}/3 prepared)`]}
+ return ['A sparkling mystery box!',s.message||'All three gym checkpoints are complete! Click the mystery box to visit your reward destination.'];
+}
+function button(action,label,cls='',extra=''){return `<button type="button" class="btn ${cls}" data-action="${action}" ${extra}>${label}</button>`}
+function controls(){
+ if(s.step===0)return `<div class="controls-label">SELECT YOUR STARTING POKÉMON</div><div class="starter-grid">${Object.entries(PARTNERS).map(([id,p])=>`<button class="starter-card" type="button" data-pick="${id}" aria-pressed="${s.starter===id}">${sprite(id)}<strong>${p.name}</strong><span class="type ${p.type.toLowerCase()}">${p.type}</span></button>`).join('')}</div><div class="start-row">${button('start','BEGIN ADVENTURE <span class="arrow">→</span>','primary',s.starter?'':'disabled')}<p class="small-note">Pick one partner. You can restart anytime.</p></div>`;
+ if(s.step===1){if(s.battleWon)return `<div class="controls-label">CHECKPOINT CLEARED</div>${button('next','CONTINUE TO CHECKPOINT 2 <span class="arrow">→</span>','primary full-width')}`;if(s.battleLost)return `<div class="controls-label">TRY THE BATTLE AGAIN</div>${button('retry','HEAL & RETRY <span class="arrow">↻</span>','primary full-width')}`;let p=PARTNERS[s.starter];return `<div class="controls-label">CHOOSE YOUR MOVE</div><div class="action-grid">${button('attack1',`<span>⚔ ${p.move1}<br><span class="sub">POWER MOVE</span></span><span class="arrow">↗</span>`)}${button('attack2',`<span>✦ ${p.move2}<br><span class="sub">QUICK MOVE</span></span><span class="arrow">↗</span>`)}${button('potion',`<span>✚ Potion<br><span class="sub">+30 HP · ${s.potions} LEFT</span></span>`,'',s.potions<=0?'disabled':'')}${button('guard','<span>◈ Guard<br><span class="sub">REDUCE NEXT HIT</span></span>')}</div><p class="small-note">Pikachu counters after each turn. Your partner is healed between checkpoints.</p>`}
+ if(s.step===2){if(s.puzzleDone)return `<div class="controls-label">CHECKPOINT CLEARED</div>${button('next','CONTINUE TO CHECKPOINT 3 <span class="arrow">→</span>','primary full-width')}`;return `<div class="controls-label">IDENTIFY THE POKÉMON</div><div class="question-grid">${['Psyduck','Slowpoke','Quaxly','Golduck'].map(x=>`<button type="button" class="btn answer ${s.incorrect===x?'wrong':''}" data-answer="${x}"><span>◉ ${x}</span><span class="arrow">›</span></button>`).join('')}</div><div style="margin-top:12px">${button('hint',s.hint?'HINT REVEALED ✓':'💡 REVEAL A HINT','',s.hint?'disabled':'')}</div>${s.hint?'<div class="hint-card">FIELD NOTE: It often experiences a mysterious headache. Its unusual abilities may emerge when the pain becomes intense.</div>':''}`}
+ if(s.step===3){if(s.ramen>=RAMEN_GOAL)return `<div class="controls-label">ALL THREE RAMEN CUPS SERVED!</div>${button('next','ENTER THE PRIZE ROOM <span class="arrow">→</span>','primary full-width')}`;return `<div class="controls-label">RAMEN RESCUE · ${s.ramen} / 3 CUPS READY</div><div class="action-grid">${button('cook','<span>🍜 COOK & SERVE ONE CUP<br><span class="sub">2-second timer</span></span><span class="arrow">+</span>','gold',cooking?'disabled':'')}<div style="display:grid;align-content:center;justify-items:center;background:#f8fbfb;border:2px dashed #9db8c7;border-radius:8px;color:#536b80;font-size:12px;font-weight:900">${s.ramen} / 3<br>RAMEN CUPS</div></div><p class="small-note">Each cup cooks for 2 seconds. Watch the noodles appear as they cook.</p>`}
+ return `<div class="controls-label">YOU FOUND THE TREASURE!</div>${button('open','OPEN MYSTERY BOX <span class="arrow">✦</span>','gold full-width')}`;
+}
+function status(){
+ const stages=[['01','READY FOR BATTLE','Cardio Zone'],['02','WHO IS THAT POKEMON','Water Station'],['03','RAMEN RESCUE','Recovery Lounge']];
+ let completed=s.step===0?0:s.step===1?(s.battleWon?1:0):s.step===2?(s.puzzleDone?2:1):s.step===3?(s.ramen>=RAMEN_GOAL?3:2):3;
+ $('route').innerHTML=stages.map(([n,title,where],i)=>{const active=s.step===i+1&&i>=completed;const done=i<completed;return `<div class="route-step ${done?'done':active?'active':''}"><div class="step-icon">${done?'✓':n}</div><div class="step-text"><strong>${title}</strong><span>${done?'CLEAR · ':active?'NOW PLAYING · ':''}${where}</span></div></div>`}).join('');
+ $('stat-badges').textContent=`${completed} / 3`;
+ $('stat-health').textContent=s.starter?`${Math.max(0,s.hp)} / 100`:'—';
+ $('trainer-name').textContent=s.starter?name():'Not selected';
+ $('trainer-type').textContent=s.starter?PARTNERS[s.starter].type+' TYPE':'Choose a starter';
+ $('trainer-avatar').innerHTML=s.starter?sprite(s.starter):'<span style="font-size:35px;color:#4783ae">?</span>';
+ $('backpack').innerHTML=`<div class="item ${completed>=1?'found':''}"><span class="item-symbol">⚡</span>Pikachu</div><div class="item ${completed>=2?'found':''}"><span class="item-symbol">🔎</span>Pokédex</div><div class="item ${completed>=3?'found':''}"><span class="item-symbol">🍜</span>Ramen ${s.ramen}/3</div>`;
+ let progress=s.step===0?0:s.step===1?(s.battleWon?33:Math.round((78-s.foeHp)/78*28)):s.step===2?(s.puzzleDone?67:33):s.step===3?67+Math.round(s.ramen/RAMEN_GOAL*32):100;
+ $('total-progress').style.width=progress+'%';$('progress-text').textContent=progress+'%';
+ $('screen-region').textContent=['STARTER TOWN','CARDIO ZONE','WATER STATION','RECOVERY LOUNGE','TREASURE ROOM'][s.step];
+ $('stage-count').textContent=s.step===0?'TRAINER SETUP':s.step===4?'FINAL REWARD':`STOP 0${s.step} / 03`;
+}
+function render(){const [t,b]=phrase();$('scene-container').innerHTML=scenery();$('dialogue-title').textContent=t;$('dialogue-copy').textContent=b;$('controls').innerHTML=controls();status();save()}
+function randint(lo,hi){return Math.floor(Math.random()*(hi-lo+1))+lo}
+function opponentTurn(summary){const damage=Math.max(1,randint(9,15)-(s.guard?8:0));s.hp=Math.max(0,s.hp-damage);s.guard=false;s.message=summary+` Pikachu used Thunder Shock! ${name()} took ${damage} damage.`;if(s.hp===0){s.battleLost=true;s.message+=' Your partner fainted!'}}
+function animateBattle(attacker, target, effect, callback){
+ const scene=document.querySelector('.scene');
+ const from=scene?.querySelector('.mon.'+attacker), to=scene?.querySelector('.mon.'+target);
+ from?.classList.add(attacker==='ally'?'strike-ally':'strike-foe');
+ setTimeout(()=>{to?.classList.add('hit');if(scene){const fx=document.createElement('div');fx.className='battle-fx';fx.textContent=effect;scene.appendChild(fx)}},230);
+ setTimeout(callback,700);
+}
+function startCooking(){
+ if(cooking||s.step!==3||s.ramen>=RAMEN_GOAL)return;
+ cooking=true;s.message='Cooking cup '+(s.ramen+1)+'…';render();
+ const started=performance.now();
+ cookTimer=setInterval(()=>{
+  if(!cooking){clearInterval(cookTimer);return}
+  const elapsed=Math.min(COOK_MS,performance.now()-started), progress=elapsed/COOK_MS;
+  const fill=$('cook-fill'),count=$('cook-count'),cup=$('cooking-cup-image');
+  if(fill)fill.style.width=(progress*100)+'%';
+  if(count)count.textContent=((COOK_MS-elapsed)/1000).toFixed(1)+' seconds';
+  if(cup)cup.style.opacity=String(progress);
+  if(elapsed>=COOK_MS){clearInterval(cookTimer);cooking=false;s.ramen++;
+   s.message=s.ramen===RAMEN_GOAL?'All three cups served! Snorlax is happy!':`Cup ${s.ramen} served! ${RAMEN_GOAL-s.ramen} more to go.`;render();
+  }
+ },50);
+}
+function action(key){
+ if(battleBusy&&s.step===1)return;
+
+ if(key==='start'&&s.step===0&&s.starter){s.step=1;s.message='';}
+ else if(key==='attack1'||key==='attack2'){
+  if(s.step!==1||s.battleWon||s.battleLost)return;
+  const p=PARTNERS[s.starter],first=key==='attack1',damage=randint(...(first?p.power1:p.power2)),move=first?p.move1:p.move2;
+  battleBusy=true;
+  animateBattle('ally','foe',first?'💥':'✨',()=>{
+   s.foeHp=Math.max(0,s.foeHp-damage);
+   const summary=`${name()} used ${move}! Pikachu took ${damage} damage.`;
+   if(s.foeHp===0){s.battleWon=true;s.message=summary+' Victory!';battleBusy=false;render();return}
+   s.message=summary+' Pikachu prepares to counterattack!';render();
+   animateBattle('foe','ally','⚡',()=>{opponentTurn(summary);battleBusy=false;render()});
+  });return;
+ }
+ else if(key==='potion'&&s.step===1&&s.potions>0&&!s.battleWon&&!s.battleLost){s.potions--;const healed=Math.min(30,100-s.hp);s.hp+=healed;battleBusy=true;animateBattle('foe','ally','⚡',()=>{opponentTurn(`${name()} regained ${healed} HP!`);battleBusy=false;render()});return}
+ else if(key==='guard'&&s.step===1&&!s.battleWon&&!s.battleLost){s.guard=true;battleBusy=true;animateBattle('foe','ally','⚡',()=>{opponentTurn(`${name()} braced for an attack!`);battleBusy=false;render()});return}
+ else if(key==='retry'&&s.step===1){Object.assign(s,{hp:100,foeHp:78,potions:1,guard:false,battleWon:false,battleLost:false,message:''})}
+ else if(key==='hint'&&s.step===2){s.hint=true;s.message='Read the clue below, then choose a name.'}
+ else if(key==='cook'&&s.step===3&&s.ramen<RAMEN_GOAL){startCooking();return}
+ else if(key==='open'&&s.step===4){
+  const destination=MYSTERY_BOX_URL.trim();
+  if(destination && /^https?:\/\//i.test(destination)){window.location.assign(destination);return;}
+  s.message='The destination link has not been added yet. Please check back later.';
+ }
+ else if(key==='next'){
+ if(s.step===1&&s.battleWon){s.step=2;s.hp=100;s.message=''}
+ else if(s.step===2&&s.puzzleDone){s.step=3;s.message=''}
+ else if(s.step===3&&s.ramen>=RAMEN_GOAL){s.step=4;s.message=''}
+ }
+ render();
+}
+document.addEventListener('click',e=>{
+ const pick=e.target.closest('[data-pick]');if(pick&&s.step===0){s.starter=pick.dataset.pick;render();return}
+ const answer=e.target.closest('[data-answer]');if(answer&&s.step===2&&!s.puzzleDone){let choice=answer.dataset.answer;if(choice==='Psyduck'){s.puzzleDone=true;s.message=''}else{s.incorrect=choice;s.message=`That identification does not match the field notes. Study the clues and try again.`;}render();return}
+ const act=e.target.closest('[data-action]');if(act){action(act.dataset.action);return}
+});
+$('restart').addEventListener('click',()=>{if(window.confirm('Restart the adventure? Your current progress will be cleared.')){clearInterval(cookTimer);cooking=false;battleBusy=false;s=fresh();render();}});
+render();
+</script>
+</body>
+</html>
